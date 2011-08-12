@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.2/jasmine.css">
+  <script type="text/javascript" src="lib/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.2/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.2/jasmine-html.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="julienLineCounter.js"></script>
+
+  <!-- include spec files here... -->
+  <script type="text/javascript" src="spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="spec/JulienLineCounterSpec.js"></script>
+
+  <style>
+    #tests { 
+      float: left; 
+      clear: both 
+    }
+    #tests p { 
+      float: left; 
+      margin-right: 20px;
+    }
+      p#test01 {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 200px;
+        font-size: 12px;
+        line-height: 16px;
+      }
+      p#test02 {
+        font: 12px/1.4 Arial, Helvetica, sans-serif;
+        width: 200px;
+      }
+  </style>
+
+</head>
+<body>
+
+<script type="text/javascript">
+  $(function(){
+    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+    jasmine.getEnv().execute();
+  });
+</script>
+
+  <div id="tests">
+    <p id="test01">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec egestas arcu. In commodo turpis ut massa rhoncus tincidunt sagittis ipsum egestas. Duis ut turpis eget sapien cursus auctor non vitae augue. Fusce at urna nec neque ullamcorper venenatis. Suspendisse pharetra pretium arcu, eu mollis elit eleifend eget.
+    </p>
+    <p id="test02">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec egestas arcu. In commodo turpis ut massa rhoncus tincidunt sagittis ipsum egestas. Duis ut turpis eget sapien cursus auctor non vitae augue. Fusce at urna nec neque ullamcorper venenatis. Suspendisse pharetra pretium arcu, eu mollis elit eleifend eget. 
+    </p>
+  </div>
+  <br clear="both"/>
+
+</body>
+</html>
