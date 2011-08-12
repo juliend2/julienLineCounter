@@ -6,32 +6,26 @@ describe("JulienLineCounter", function() {
     });
   });
 
-  // it("should be able to play a Song", function() {
-  //   player.play(song);
-  //   expect(player.currentlyPlayingSong).toEqual(song);
+  describe("when an element has some text in it", function(){
 
-  //   //demonstrates use of custom matcher
-  //   expect(player).toBePlaying(song);
-  // });
+    it("should return something", function(){
+      expect($.julienLineCounter("#test01")).toBeTruthy();
+      expect($.julienLineCounter("#test02")).toBeTruthy();
+      expect($.julienLineCounter("#no-line-height")).toBeTruthy();
+    });
 
-  // describe("when song has been paused", function() {
-  //   beforeEach(function() {
-  //     player.play(song);
-  //     player.pause();
-  //   });
+    it("should return the right answer", function(){
+      expect($.julienLineCounter("#test01")).toBe(10);
+      expect($.julienLineCounter("#test02")).toBe(10);
+      expect($.julienLineCounter("#no-line-height")).toBe(11);
+    });
 
-  //   it("should indicate that the song is currently paused", function() {
-  //     expect(player.isPlaying).toBeFalsy();
+  });
 
-  //     // demonstrates use of 'not' with a custom matcher
-  //     expect(player).not.toBePlaying(song);
-  //   });
-
-  //   it("should be possible to resume", function() {
-  //     player.resume();
-  //     expect(player.isPlaying).toBeTruthy();
-  //     expect(player.currentlyPlayingSong).toEqual(song);
-  //   });
-  // });
+  describe("when an element has no text in it", function(){
+    it("should return false", function(){
+      expect($.julienLineCounter('#empty')).toBe(0);
+    });
+  });
 
 });
