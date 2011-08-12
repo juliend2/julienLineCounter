@@ -1,11 +1,11 @@
 (function( $ ){
-  $.julienLineCounter = {version: 0.1};
+  $.julienLineCounter = {version: 0.2};
 
   $.julienLineCounter = function( jqSelector ) {
     var nLines = 0;
     var $elm = $(jqSelector);
     if ($elm.length == 0) { return false; }
-    var elmHeight = $elm.height();
+    var elmHeight = $elm.innerHeight();
     var lineHeight = $elm.css('line-height');
 
     // Uh oh! A 'normal' line-height! What's the value in pixels?
@@ -16,8 +16,8 @@
       $elm.html(htmlCache);             // put back its content
     }
 
-    var intLineHeight = parseInt(lineHeight, 10);
-    nLines = elmHeight / intLineHeight;
+    var numLineHeight = parseFloat(lineHeight);
+    nLines = elmHeight / numLineHeight;
 
     return nLines;
   };
